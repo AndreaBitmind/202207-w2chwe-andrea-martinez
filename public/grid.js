@@ -1,24 +1,22 @@
+const Bacterium = require("./Bacterium");
+
 class BoardCreation {
-  isAlive = false;
   rowAmount;
   columnAmount;
-  board = [];
+  cells;
 
   constructor(rowAmount, columnAmount) {
     this.rowAmount = rowAmount;
     this.columnAmount = columnAmount;
+    this.cells = this.createBoard();
   }
 
-  createBoard = () => {
-    for (let i = 0; i < this.rowAmount; i += 1) {
-      const line = [];
-      for (let j = 0; j < this.columnAmount; j += 1) {
-        line.push({ coordinates: `${i}, ${j}`, isAlive: false });
-      }
-      this.board.push(line);
-    }
-    return this.board;
-  };
+  createBoard() {
+    const cells = new Array(this.columnAmount).fill(
+      new Array(this.rowAmount).fill(new Bacterium())
+    );
+    return cells;
+  }
 }
 
 module.exports = BoardCreation;
