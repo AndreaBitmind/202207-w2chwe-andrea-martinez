@@ -1,14 +1,24 @@
-const board = [];
+class BoardCreation {
+  isAlive = false;
+  rowAmount;
+  columnAmount;
+  board = [];
 
-const printBoard = (row, colum) => {
-  for (let i = 0; i < row; i += 1) {
-    const line = [];
-    for (let j = 0; j < colum; j += 1) {
-      line.push({ coordinates: `${i}, ${j}`, isAlive: false });
-    }
-    board.push(line);
+  constructor(rowAmount, columnAmount) {
+    this.rowAmount = rowAmount;
+    this.columnAmount = columnAmount;
   }
-  return board;
-};
 
-console.log(printBoard(3, 3));
+  createBoard = () => {
+    for (let i = 0; i < this.rowAmount; i += 1) {
+      const line = [];
+      for (let j = 0; j < this.columnAmount; j += 1) {
+        line.push({ coordinates: `${i}, ${j}`, isAlive: false });
+      }
+      this.board.push(line);
+    }
+    return this.board;
+  };
+}
+
+module.exports = BoardCreation;
