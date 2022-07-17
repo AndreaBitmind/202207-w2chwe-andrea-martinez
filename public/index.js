@@ -1,9 +1,9 @@
-const BoardCreation = require("./grid");
+const BoardCreation = require("./BoardCreation");
 const Bacterium = require("./Bacterium");
 
-const prueba = new BoardCreation(2, 2);
+const grid = new BoardCreation(2, 2).createBoard();
 
 const bacteriaTest = new Bacterium();
 
-console.log(prueba);
+console.log(grid);
 console.log(bacteriaTest);
